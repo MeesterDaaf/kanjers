@@ -15,6 +15,12 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->date('startdate');
+            $table->date('enddate');
+            $table->text('remarks');
+            $table->foreignId('client_id')->constrained('users');
+
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             'firstname' => 'admin',
             'lastname' => 'admin',
             'email'     => 'admin@admin.com',
-            'password'  => bcrypt('welkom')
+            'password'  => bcrypt('admin')
         ]);
         \App\Models\User::factory(10)->create();
     }

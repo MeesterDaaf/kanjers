@@ -21,9 +21,9 @@ Route::middleware(['auth'])->group(function () {
     //     return view('welcome');
     // });
 
-    Route::get('users', [EmployeeController::class, 'index']);
+    Route::resource('users', EmployeeController::class);
 
-    // Route::get('/dashboard', function () {
-    //     return view('dashboard');
-    // })->middleware(['auth'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
 });

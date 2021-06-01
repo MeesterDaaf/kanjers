@@ -22,5 +22,9 @@ class DatabaseSeeder extends Seeder
             'isActive'  => 1
         ]);
         \App\Models\User::factory(10)->create();
+
+        $this->call([
+            RolesAndPermissionsSeeder::class
+        ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class EmployeeController extends Controller
 {
@@ -17,9 +18,11 @@ class EmployeeController extends Controller
     public function index()
     {
         $data = [
-            'users' => User::all(),
+            'users' => User::with('roles')->get(),
             'header' => 'Alle werknemers'
         ];
+
+
 
         return view('users.index', $data);
     }
@@ -65,8 +68,9 @@ class EmployeeController extends Controller
     public function edit(User $user)
     {
         $data = [
-            'user'   => $user,
-            'header' => 'Pas werknemer aan'
+            'user'      => $user,
+            'all_roles' => Role::all(),
+            'header'    => 'Pas werknemer aan'
         ];
 
         return view('users.edit', $data);

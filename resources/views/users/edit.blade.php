@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('main')
+@php
+    // dd($user->roles);
+@endphp
 <div class="container mx-auto">
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -23,6 +26,14 @@
                         <div class="flex flex-col mb-4">
                             <label for="title" class="mb-2 uppercase font-bold text-lg text-grey-darkest">Titel</label>
                             <input type="text" name="title" id="title" class="form-input"  value="{{old('title', $user->title)}}">
+                        </div>
+                        <div class="flex flex-col mb-4">
+                            <div class="flex flex-row">
+                                @foreach($all_roles as $role)
+                                <label for="{{$role->id}}">{{$role->name}}</label>
+                                <input type="radio" name="role" id="{{$role->id}}" class="form-checkbox rounded text-pink-500 m-1" value="{{$role->name}}" @if($user->roles->contains('name', $role->name) ) checked @endif>
+                                @endforeach
+                            </div>
                         </div>
                         <div class="flex flex-col mb-4">
                             <div class="flex flex-row">

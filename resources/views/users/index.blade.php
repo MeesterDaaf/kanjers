@@ -56,7 +56,10 @@
 								</span>
 							</td>
 							<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-								Admin
+								{{-- {{$user->getRoleNames()}} --}}
+								@foreach($user->getRoleNames() as $role)
+									<div class="bg-yellow-500 rounded px-2">{{$role}}</div>
+								@endforeach
 							</td>
 							<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 								<a href="{{route('users.edit', $user)}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 require __DIR__ . '/auth.php';
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::middleware(['auth'])->group(function () {
-    // Route::get('/', function () {
-    //     return view('welcome');
-    // });
 
     Route::resource('users', EmployeeController::class);
     Route::resource('roles', RoleController::class);
+    Route::resource('permissions', PermissionController::class);
 
     Route::get('/dashboard', function () {
         return view('dashboard');

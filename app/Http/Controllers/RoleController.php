@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -58,8 +59,9 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         $data = [
-            'role'   => $role,
-            'header' => "Update rol"
+            'role'          => $role,
+            'permissions'   => Permission::all(),
+            'header'        => "Update rol"
         ];
 
         return view('roles.edit', $data);
@@ -75,11 +77,11 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $role->name = $request->title;
+        $role->syncPermissions($request->permissions);
         $role->save();
 
         $data = [
             'role'   => $role,
-            'header' => "Update rol"
         ];
 
         return redirect()->route('roles.edit', $data);

@@ -12,7 +12,7 @@
                         @csrf
                         <div class="flex flex-col mb-4">
                             <label for="title" class="mb-2 uppercase font-bold text-lg text-grey-darkest">Titel</label>
-                            <input type="text" name="title" id="title" class="form-input" value="{{old('title')}}">
+                            <input type="text" name="title" id="title" class="form-input" value="{{old('title')}}" autofocus>
                         </div>
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Save

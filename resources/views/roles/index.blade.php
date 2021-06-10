@@ -11,6 +11,9 @@
 						<th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
 						Rolnaam
 						</th>
+						<th>
+							Permissies
+						</th>
 						<th scope="col" class="relative px-6 py-3">
 						    <span class="sr-only">Edit</span>
 						</th>
@@ -23,6 +26,11 @@
 								<div class="flex items-center">
                                     <div class="text-sm text-gray-900">{{$role->name}}</div>
 								</div>
+							</td>
+							<td>
+								@foreach ($role->permissions as $item)
+									<span class="rounded-lg bg-green-900 m-3 p-2 text-gray-50">{{$item->name}}</span>
+								@endforeach
 							</td>
 							<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 								<a href="{{route('roles.edit', $role)}}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -15,9 +16,15 @@ class RoleController extends Controller
      */
     public function index()
     {
+
+        if (Auth::user()->canNot('view-roles')) {
+            abort(403);
+        }
+
         $data = [
-            'roles' => Role::all(),
-            'header' => "Alle rollen"
+            'roles'         => Role::all(),
+            'permissions'   => Permission::all(),
+            'header'        => "Alle rollen"
         ];
 
         return view('roles.index', $data);
@@ -30,6 +37,11 @@ class RoleController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->canNot('create-roles')) {
+            abort(403);
+        }
+
+
         $data = [
             'header' => "Maak rol"
         ];
@@ -58,6 +70,13 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+
+        if (Auth::user()->canNot('edit-roles')) {
+            abort(403);
+        }
+
+
+
         $data = [
             'role'          => $role,
             'permissions'   => Permission::all(),
@@ -95,6 +114,11 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
+
+        if (Auth::user()->canNot('delete-roles')) {
+            abort(403);
+        }
+
         $role->delete();
         return redirect()->route('roles.index');
     }

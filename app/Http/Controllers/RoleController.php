@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+use App\Models\Permission;
+use App\Models\Area;
+use App\Models\Role;
+
 
 class RoleController extends Controller
 {
@@ -24,6 +26,7 @@ class RoleController extends Controller
         $data = [
             'roles'         => Role::all(),
             'permissions'   => Permission::all(),
+            'area'          => Area::get(),
             'header'        => "Alle rollen"
         ];
 

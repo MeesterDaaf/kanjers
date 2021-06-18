@@ -16,21 +16,21 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                @can('view-users')
+                @can('index-users')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         {{ __('Users') }}
                     </x-nav-link>
                 </div>
                 @endcan
-                @can('view-roles')
+                @can('index-roles')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index')">
                         {{ __('Roles') }}
                     </x-nav-link>
                 </div>
                 @endcan
-                @can('view-permissions')
+                @can('index-permissions')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('permissions.index')" :active="request()->routeIs('permissions.index')">
                         {{ __('Permissions') }}

@@ -4,13 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use App\Models\Area;
-use App\Models\Role;
 
 
 class RoleController extends Controller
 {
+
+    /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Role::class, 'roles');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -18,10 +30,6 @@ class RoleController extends Controller
      */
     public function index()
     {
-
-        if (Auth::user()->canNot('view-roles')) {
-            abort(403);
-        }
 
         $data = [
             'roles'         => Role::all(),
@@ -40,11 +48,6 @@ class RoleController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->canNot('create-roles')) {
-            abort(403);
-        }
-
-
         $data = [
             'header' => "Maak rol"
         ];

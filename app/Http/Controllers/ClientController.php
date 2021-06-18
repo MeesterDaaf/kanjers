@@ -14,7 +14,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+
+        $this->authorize('viewAny', Client::class);
+
+        return view('clients.index');
     }
 
     /**
@@ -24,7 +27,9 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Client::class);
+
+        return view('clients.create');
     }
 
     /**

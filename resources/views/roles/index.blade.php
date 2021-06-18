@@ -6,6 +6,7 @@
       	<div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
 			<div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 				@forelse ($roles as $role)
+
 					<table class="min-w-full divide-y divide-gray-200">
 						<thead class="bg-gray-50">
 							<tr>
@@ -28,7 +29,7 @@
 								</td>
 								@foreach ($area as $area_item)
 									<td class="text-center">
-										@if ($role->hasPermit('index-'.$area_item))
+										@if ($role->hasPermissionTo('index-'.$area_item))
 											<div class="text-gray-50 bg-green-900 leading-normal py-2 px-4 rounded-md font-extrabold py-2 px-4">index </div>
 										@else
 											<div class="text-red-400">index</div>
@@ -42,7 +43,7 @@
 								</td>
 								@foreach ($area as $area_item)
 									<td class="text-center">
-										@if ($role->hasPermit('view-'.$area_item))
+										@if ($role->hasPermissionTo('view-'.$area_item))
 											<div class="text-gray-50 bg-green-900 leading-normal rounded-md font-extrabold py-2 px-4 ">view </div>
 										@else
 											<div class="text-red-400">view</div>
@@ -56,7 +57,7 @@
 								</td>
 								@foreach ($area as $area_item)
 									<td class="text-center">
-										@if ($role->hasPermit('create-'.$area_item))
+										@if ($role->hasPermissionTo('create-'.$area_item))
 											<div class="text-gray-50 bg-green-900 leading-normal rounded-md font-extrabold py-2 px-4 ">create </div>
 										@else
 											<div class="text-red-400">create</div>
@@ -70,7 +71,7 @@
 								</td>
 								@foreach ($area as $area_item)
 									<td class="text-center">
-										@if ($role->hasPermit('edit-'.$area_item))
+										@if ($role->hasPermissionTo('edit-'.$area_item))
 											<div class="text-gray-50 bg-green-900 leading-normal rounded-md font-extrabold py-2 px-4 ">edit </div>
 										@else
 											<div class="text-red-400">edit</div>
@@ -85,7 +86,7 @@
 								</td>
 								@foreach ($area as $area_item)
 									<td class="text-center">
-										@if ($role->hasPermit('delete-'.$area_item))
+										@if ($role->hasPermissionTo('delete-'.$area_item))
 											<div class="text-gray-50 bg-green-900 leading-normal rounded-md font-extrabold py-2 px-4 ">delete</div>
 										@else
 											<div class="text-red-400">delete</div>
@@ -95,6 +96,7 @@
 							</tr>
 						</tbody>
 					</table>
+
 					@empty
 				@endforelse
 			</div>

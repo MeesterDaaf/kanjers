@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,11 +24,16 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
 
+    Route::resource('clients', ClientController::class);
     Route::resource('users', EmployeeController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
 
+    // Route::get('roles', [RoleController::class, 'index']);
+
+
+
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->middleware(['auth'])->name('dashboard');
+    })->name('dashboard');
 });

@@ -62,7 +62,9 @@
 								@endforeach
 							</td>
 							<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+								@can('edit-users')
 								<a href="{{route('users.edit', $user)}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+								@endcan
 							</td>
 						</tr>
 						@empty

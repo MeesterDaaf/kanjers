@@ -10,6 +10,18 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+
+    /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(User::class, 'users');
+    }
+
+
     /**
      * Display a listing of the resource.
      *

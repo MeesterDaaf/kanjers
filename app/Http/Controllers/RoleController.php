@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Area;
-
+use App\Models\User;
 
 class RoleController extends Controller
 {

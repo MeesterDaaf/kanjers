@@ -19,21 +19,21 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::resource('clients', ClientController::class);
-    Route::resource('employees', UserController::class);
-    Route::resource('roles', RoleController::class);
-    Route::resource('permissions', PermissionController::class);
+	Route::resource('clients', ClientController::class);
+	Route::resource('users', UserController::class);
+	Route::resource('roles', RoleController::class);
+	Route::resource('permissions', PermissionController::class);
 
-    // Route::get('roles', [RoleController::class, 'index']);
+	// Route::get('roles', [RoleController::class, 'index']);
 
 
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+	Route::get('/dashboard', function () {
+		return view('dashboard');
+	})->name('dashboard');
 });

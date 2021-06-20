@@ -8,7 +8,7 @@ use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
-class EmployeeController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.

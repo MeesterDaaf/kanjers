@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ClientController;
@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
 
     Route::resource('clients', ClientController::class);
-    Route::resource('users', EmployeeController::class);
+    Route::resource('employees', UserController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Issue;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
-class IssuesController extends Controller
+class IssueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class IssuesController extends Controller
      */
     public function index()
     {
-        $issues = 
+        $issues = Issue::all();
 
         return view('issues.index', compact($issues));
     }

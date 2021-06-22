@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectLocationsTable extends Migration
+class CreateIssuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateProjectLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_locations', function (Blueprint $table) {
+        Schema::create('issues', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id')->constrained('projects');
-            $table->foreignId('location_id')->constrained('locations');
-            $table->dateTime('start');
-            $table->dateTime('end');
-
-
-
+            $table->string('type');
+            $table->dateTime('datetime');
+            $table->integer('duration_hour')->nullable();
+            $table->integer('duration_minute')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateProjectLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_locations');
+        Schema::dropIfExists('issues');
     }
 }

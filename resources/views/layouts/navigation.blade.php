@@ -37,6 +37,13 @@
                     </x-nav-link>
                 </div>
                 @endcan
+                @can('index-issues')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('issues.index')" :active="request()->routeIs('issues.index')">
+                        {{ __('Issues') }}
+                    </x-nav-link>
+                </div>
+                @endcan
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     {{ Auth::user()->firstname }}
                 </div>

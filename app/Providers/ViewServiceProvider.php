@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\View\Composers\DarkModeComposer;
 use App\View\Composers\MenuComposer;
+use App\Http\View\Composers\FakerComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +28,7 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('*', MenuComposer::class);
+        View::composer('*', FakerComposer::class);
         View::composer('*', DarkModeComposer::class);
     }
 }

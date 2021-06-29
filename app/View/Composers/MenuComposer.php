@@ -16,8 +16,10 @@ class MenuComposer
      */
     public function compose(View $view)
     {
+
         $pageName = request()->route()->getName();
         $layout = $this->layout($view);
+
         $activeMenu = $this->activeMenu($pageName, $layout);
 
         $view->with('side_menu', SideMenu::menu());

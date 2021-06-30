@@ -1,10 +1,10 @@
-@extends('layouts.' . $layout)
+@extends('layouts.base')
 
 @section('head')
     <title>Login - Process Security</title>
 @endsection
 
-@section('content')
+@section('body')
     <div class="container sm:px-10">
         <div class="block xl:grid grid-cols-2 gap-4">
             <!-- BEGIN: Login Info -->

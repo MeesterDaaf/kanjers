@@ -2,9 +2,7 @@
 <div class="top-bar -mx-4 px-4 md:mx-0 md:px-0">
     <!-- BEGIN: Breadcrumb -->
     <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
-        <a href="">Application</a>
-        <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-        <a href="" class="breadcrumb--active">Dashboard</a>
+        @yield('breadcrumb')
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->

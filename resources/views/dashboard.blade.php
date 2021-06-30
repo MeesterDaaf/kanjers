@@ -1,18 +1,15 @@
-@extends('layouts.' . $layout)
+@extends('layouts.navigation.side-menu')
 
 @section('subhead')
     <title>Dashboard - Tinker - Tailwind HTML Admin Template</title>
 @endsection
 
-{{-- @section('mobile-menu-modifier')
-    mobile-menu--dashboard
-@endsection
 
 @section('content-modifier')
     content--dashboard
-@endsection --}}
+@endsection
 
-@section('subcontent')
+@section('content')
     <div class="relative">
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12 xl:col-span-9 xxl:col-span-9 z-10">

@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use App\View\Composers\DarkModeComposer;
 use App\View\Composers\MenuComposer;
-use App\Http\View\Composers\FakerComposer;
+use App\View\Composers\FakerComposer;
+
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 

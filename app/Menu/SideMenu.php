@@ -16,32 +16,32 @@ class SideMenu
             'dashboard' => [
                 'icon' => 'home',
                 'title' => 'Dashboard',
-                'sub_menu' => [
-                    'dashboard-overview-1' => [
-                        'icon' => '',
-                        'route_name' => 'dashboard-overview-1',
-                        'params' => [
-                            'layout' => 'side-menu',
-                        ],
-                        'title' => 'Overview 1'
-                    ],
-                    // 'dashboard-overview-2' => [
-                    //     'icon' => '',
-                    //     'route_name' => 'dashboard-overview-2',
-                    //     'params' => [
-                    //         'layout' => 'side-menu',
-                    //     ],
-                    //     'title' => 'Overview 2'
-                    // ],
-                    // 'dashboard-overview-3' => [
-                    //     'icon' => '',
-                    //     'route_name' => 'dashboard-overview-3',
-                    //     'params' => [
-                    //         'layout' => 'side-menu',
-                    //     ],
-                    //     'title' => 'Overview 3'
-                    // ]
-                ]
+
+            ],
+            'devider',
+            'users' => [
+                'icon' => 'users',
+                'route_name' => 'users.index',
+                'params' => [
+                    'layout' => 'side-menu'
+                ],
+                'title' => 'Gebruikers'
+            ],
+            'permissions' => [
+                'icon' => 'grid',
+                'route_name' => 'permissions.index',
+                'params' => [
+                    'layout' => 'side-menu'
+                ],
+                'title' => 'Permissies'
+            ],
+            'roles' => [
+                'icon' => 'layers',
+                'route_name' => 'roles.index',
+                'params' => [
+                    'layout' => 'side-menu'
+                ],
+                'title' => 'Rollen'
             ],
             // 'menu-layout' => [
             //     'icon' => 'box',
@@ -73,14 +73,7 @@ class SideMenu
             //         ]
             //     ]
             // ],
-            // 'inbox' => [
-            //     'icon' => 'inbox',
-            //     'route_name' => 'inbox',
-            //     'params' => [
-            //         'layout' => 'side-menu'
-            //     ],
-            //     'title' => 'Inbox'
-            // ],
+
             // 'file-manager' => [
             //     'icon' => 'hard-drive',
             //     'route_name' => 'file-manager',

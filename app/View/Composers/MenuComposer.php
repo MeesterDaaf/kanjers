@@ -16,35 +16,15 @@ class MenuComposer
      */
     public function compose(View $view)
     {
-
         $pageName = request()->route()->getName();
-        $layout = $this->layout($view);
 
-        $activeMenu = $this->activeMenu($pageName, $layout);
+        $activeMenu = $this->activeMenu($pageName);
 
         $view->with('side_menu', SideMenu::menu());
         $view->with('first_level_active_index', $activeMenu['first_level_active_index']);
         $view->with('second_level_active_index', $activeMenu['second_level_active_index']);
         $view->with('third_level_active_index', $activeMenu['third_level_active_index']);
         $view->with('page_name', $pageName);
-        $view->with('layout', $layout);
-    }
-
-    /**
-     * Specify used layout.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function layout($view)
-    {
-        if (isset($view->layout)) {
-            return $view->layout;
-        } else if (request()->has('layout')) {
-            return request()->query('layout');
-        }
-
-        return 'side-menu';
     }
 
     /**
@@ -53,13 +33,11 @@ class MenuComposer
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function activeMenu($pageName, $layout)
+    public function activeMenu($pageName)
     {
         $firstLevelActiveIndex = '';
         $secondLevelActiveIndex = '';
         $thirdLevelActiveIndex = '';
-
-
 
         foreach (SideMenu::menu() as $menuKey => $menu) {
             if ($menu !== 'devider' && isset($menu['route_name']) && $menu['route_name'] == $pageName && empty($firstPageName)) {
